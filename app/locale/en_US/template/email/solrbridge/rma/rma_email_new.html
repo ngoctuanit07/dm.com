@@ -1,0 +1,80 @@
+<!--@subject Account confirmation for {{var customer.name}} @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"var logo_url":"Email Logo Image Url",
+"var logo_alt":"Email Logo Image Alt",
+"store url=\"customer/account/\"":"Customer Account Url",
+"htmlescape var=$customer.name":"Customer Name",
+"var customer.email":"Customer Email",
+"store url=\"customer/account/confirm/\" _query_id=$customer.id _query_key=$customer.confirmation _query_back_url=$back_url":"Confirmation Url",
+"htmlescape var=$customer.password":"Customer password"}
+@-->
+
+<!--@styles
+@-->
+
+{{template config_path="design/email/header"}}
+{{inlinecss file="email-inline.css"}}
+<table cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td>
+			<table cellpadding="0" cellspacing="0" border="0">
+				<tr>
+					<td class="email-heading">
+						<h1>Thank you for your RMA from {{var store.getFrontendName()}}</h1>
+						<p>Once your package ships we will send an email with a link
+							to track your RMA. Your RMA summary is below. Thank you again
+							for your business.</p>
+					</td>
+					<td class="store-info">
+						<h4>RMA Questions?</h4>
+						<p>
+							{{depend store_phone}} <b>Call Us:</b> <a
+								href="tel:{{var phone}}">{{var store_phone}}</a><br>
+							{{/depend}} {{depend store_hours}} <span class="no-link">{{var
+								store_hours}}</span><br> {{/depend}} {{depend store_email}} <b>Email:</b>
+							<a href="mailto:{{var store_email}}">{{var store_email}}</a>
+							{{/depend}}
+						</p>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<table cellpadding="0" cellspacing="0" border="0">
+				<tr>
+					<td class="order-details">
+						<h3>
+							Your RMA <span class="no-link">#{{var rma_id}}</span>
+						</h3>
+						<p>Placed on {{var create_at}}</p>
+					</td>
+				</tr>
+				<tr class="order-information">
+					<td>
+						{{layout handle="sbrma_index_email"}}
+						<table cellpadding="0" cellspacing="0" border="0">
+							<tr>
+								<td class="address-details">
+									<h6>Bill to:</h6>
+									<p>
+										<span class="no-link">{{var billing.format('html')}}</span>
+									</p>
+								</td>
+								<td class="address-details">
+									<h6>Ship to:</h6>
+									<p>
+										<span class="no-link">{{var billing.format('html')}}</span>
+									</p>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+{{template config_path="design/email/footer"}}

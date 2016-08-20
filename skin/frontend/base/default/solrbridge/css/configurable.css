@@ -1,0 +1,197 @@
+/*********Improve**************/
+.extlab-option-container .extlab-option-element {
+    border: 1px solid #ddd;
+    cursor: pointer;
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+.extlab-option-container .extlab-option-element.checked {
+	background: #f3f3f3;
+	color: #555;
+	border: 1px solid #0071bb;
+}
+.extlab-option-container .extlab-option-element.disabled{
+	opacity: 0.3;
+}
+/******PRODUCT CUSTOM OPTIONS********/
+.extlab-custom-option-container .extlab-custom-option-element {
+    border: 1px solid #ddd;
+    cursor: pointer;
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+.extlab-custom-option-container .extlab-custom-option-element.checked {
+	background: #0071bb;
+	color: #f8f8f8;
+}
+
+.padder {
+	height: auto;
+    overflow-y: auto;
+}
+.product-shop-wrapper{
+	width: 33%;
+	position: unset;
+}
+.addthis_toolbox.addthis_default_style.addthis_mini_style {
+	position: absolute;
+	top: 0; right: 0;
+}
+.product-view .product-img-box {
+    width: 25%;
+}
+.product-essential {
+	padding-top: 40px;
+	position: relative;
+}
+.video-box {
+	margin-bottom: 15px;
+}
+.availability.in-stock {
+	display: none;
+}
+.product-shops .price-box {
+	float: right;
+}
+#product-options-wrapper {
+  	border-top: none;
+  	padding: 0;
+  	position: relative;
+}
+#product-options-wrapper dl {
+	margin: 0 !important;
+	float: left;
+}
+#product-options-wrapper dl div:not(.first) dt {
+  /*border-top: #ddd 1px solid;*/
+}
+#product-options-wrapper dt {
+    padding: 0 10px;
+	float: left;
+}
+/* #product-options-wrapper dl:not(:first-child) {
+	border-top: 1px solid #d2d2cc;
+} */
+#product-options-wrapper p.required{
+	display: none;
+}
+.product-shops span.price {
+	color: #0071b8;
+    font-size: 20px;
+}
+.product-shops .product-name {
+	margin-bottom: 0;
+}
+.product-image {
+    border: none !important;
+}
+.product-options dd {
+	float: left;
+}
+.extlab-option-container .extlab-option-element {
+    display: inline-block;
+    float: none;
+}
+.extlab-option-container {
+	text-align: center;
+}
+#product-options-wrapper dl div.first {
+}
+.qty-block-contain p {
+    padding: 5px;
+}
+.qty-block-contain > label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.extlab-option-element.hasOptionImage > img {
+    height: 40px;
+}
+.hasOptionImage {
+	padding: 0 !important;
+}
+.extlab-option-element {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 5px;
+    overflow: hidden;
+}
+
+/*product-custom-option*/
+.product-options ul.extlab-custom-option-container{
+ text-align: center;
+ width:100%;
+}
+.product-options ul.extlab-custom-option-container li{
+ display: inline-block;
+    float: none;
+}
+/*end product-custom-option*/
+.more-views {
+	overflow-x: auto; width: 100%; margin-bottom: 10px;	
+}
+.first.select-origin {
+    min-height: 76px;
+}
+.select-origin dd {
+    padding: 0 10px;
+}
+#product-options-wrapper dl > dt {
+    border-top: 1px solid #dddddd;
+}
+#product-options-wrapper dl > dd {
+    margin: 0;
+}
+.qty-button-plus, .qty-button-substract {
+	border-radius: 30px; cursor: pointer; padding: 1px 7px; font-weight: bold; font-size: 18px;border:1px solid #ddd;
+}
+.qty-button-substract {
+	padding: 1px 8px;
+}
+.qty-button-plus:hover, .qty-button-substract:hover {
+	background: #ddd;
+}
+#product-options-wrapper dl > dd:nth-child(2) > div {
+    min-height: 70px;
+}
+.selectpicker img {
+    width: 30px;
+}
+.filter-option.pull-left > img {
+    width: 30px;
+}
+
+.bx-wrapper .bx-controls-direction a {
+	top:30%;
+}
+.product-options .label, .product-options .content {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.product-options .label {
+	
+}
+.product-options .content {
+	text-align: left;
+}
+
+.extlab-option-container .extlab-option-element {
+    background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #98befd 0%, #98befd 50%, #518ad4 100%, #518ad4 100%) repeat scroll 0 0;
+    color: #fff;
+    display: inline-block;
+    float: none;
+    min-width: 30px;
+	border: 1px solid #4a7ebb;
+	float: left;
+}
+.product-options .row {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+	float: left;
+}

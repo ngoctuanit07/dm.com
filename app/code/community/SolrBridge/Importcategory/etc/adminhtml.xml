@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<config>
+	<translate>
+	  	<modules>
+		   <SolrBridge_Importcategory>
+			    <files>
+			     	<default>SolrBridge_Importcategory.csv</default>
+			    </files>
+		   </SolrBridge_Importcategory>
+	  	</modules>
+ 	</translate>
+	<menu>
+		<solrbridge module="sbimportcategory">
+			<title>SolrBridge</title>
+			<sort_order>90</sort_order>
+			<depends>
+                <module>SolrBridge_Importcategory</module>
+            </depends>
+            <children>
+                <importcategory_settings translate="title" module="sbimportcategory">
+                   <title>Import Category</title>
+                        <sort_order>5</sort_order>
+                   <action>sbimportcategory_admin/adminhtml_importcategory/index</action>
+           		</importcategory_settings>
+        	</children>
+   		 </solrbridge>
+	</menu>
+
+	<acl>
+	    <resources>
+	        <all>
+	            <title>Solrbridge Importcategory</title>
+	        </all>
+	        <admin>
+	            <children>
+	                <system>
+	                    <children>
+	                        <config>
+	                            <children>
+	                                <solrbridge translate="title">
+	                                    <title>Solrbridge Importcategory settings</title>
+	                                    <sort_order>100</sort_order>
+	                                </solrbridge>
+	                            </children>
+	                        </config>
+	                    </children>
+	                </system>
+	            </children>
+	        </admin>
+	    </resources>
+	</acl>
+</config>

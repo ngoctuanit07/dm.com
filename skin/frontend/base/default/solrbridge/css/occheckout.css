@@ -1,0 +1,74 @@
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     default_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/* Reset ================================================================================= */
+.occheckout-index-occheckout{background:transparent;}
+.occheckout-index-occheckout .main{width:100%; padding:20px 20px 80px; box-sizing: border-box; background-size:100%;}
+.occheckout-left{float:left; width:40%;}
+.occheckout-right{float:right; border-left: 1px solid #cfcfcf; padding-left: 14px; width: 58%;}
+/*.shipping-address, .billing-address{width:48.5%;}*/
+.occheckout-title{padding:8px 0;}
+.occheckout-title h1{margin-top:5px;}
+.occheckout-title ul li{display:inline-block;}
+.occheckout-title ul li:first-child{margin-right:20px;}
+.octable thead th{border:none; border-right:1px solid #c2d3e0;}
+.octable thead th.last{border:0px;}
+.octable tbody th, .octable tbody td {border:0px; border-bottom: 1px solid #d9dde3; border-right: 1px solid #d9dde3;}
+.octable .btn-remove2{border:none; background-color:transparent; padding:0px; }
+.occheckout-index-occheckout .btn-update span{background: #618499; border-color: #406a83; padding:0 10px; font:bold 12px/30px Arial,Helvetica,sans-serif; height: 25px; line-height:25px; border-radius:5px; }
+.occheckout-title .btn-update span {padding:0px; background: #618499; border-color: #406a83; font:bold 15px/40px Arial,Helvetica,sans-serif; height: 35px; line-height:35px; border-radius:5px; width:180px;}
+.occheckout-index-occheckout .cart-data{margin-bottom:15px;}
+.occheckout-index-occheckout .cart-manual {border-bottom: 1px solid #cfcfcf; margin-bottom: 15px; padding-bottom: 15px;}
+.occheckout-index-occheckout .form-list li.wide .input-box,
+.occheckout-index-occheckout .form-list .input-box,
+.occheckout-index-occheckout .form-list .field{width:100%; float:left;}
+.occheckout-index-occheckout .form-list li.wide input.input-text,
+.occheckout-index-occheckout .form-list input.input-text,
+.occheckout-index-occheckout .form-list select,
+.occheckout-index-occheckout .form-list li.wide select{width:100%;  box-sizing: border-box;padding: 5px;}
+.occheckout-index-occheckout .sp-methods select.year{width: 96px;}
+.occheckout-index-occheckout .fields > div:first-child, .occheckout-index-occheckout .name-firstname{margin-bottom:8px;}
+.v-right{float:right;}
+.occheckout-left label[for="new-billing-address-form"],
+.occheckout-left label[for="new-shipping-address-form"],
+.occheckout-index-occheckout label[for="billing-address-select"],
+.occheckout-index-occheckout label[for="shipping-address-select"],
+.occheckout-left h2, .occheckout-right h2, .occheckout-right h3{font-size:16px; color:#0a263c; font-weight: normal; line-height: 18px; margin-bottom:8px;}
+.payment-methods {float: right; width: 50%;}
+.shipping-method{float:left;}
+.occheckout-index-occheckout .grand-total {margin-top: 15px;}
+.occheckout-index-occheckout #shopping-cart-totals-table td{padding:3px 5px; border:1px solid #cfcfcf; border-width: 1px 0 0 1px;}
+.occheckout-index-occheckout #shopping-cart-totals-table{border:1px solid #cfcfcf; border-width: 0 1px 1px 0;}
+.occheckout-index-occheckout .grand-total{float:left !important;}
+.occheckout-index-occheckout .buttons-set{border:none;}
+
+.occheckout-btn-cart{background:#f18200; text-decoration: none; border: 1px solid #de5400; color: #ffffff; display: block; font: bold 12px/19px Arial,Helvetica,sans-serif; height: 19px; padding: 0 8px; text-align: center; white-space: nowrap;}
+.occheckout-fl{float:left;}
+.occheckout-btn-cart{float:left; margin-left:5px;}
+.logout-btn-cart{margin-top:5px; margin-left:0px;}
+#occheckout-popup{cursor: pointer}
+.oneclick{margin: 10px 0px 0px 62px;background-color: #333333;color: #ffffff;line-height: 55px;min-width: 200px;display: inline-block;font-size: 1.1666em;font-weight: normal;overflow: visible;text-align: center;}
+.oneclick:hover{background-color: #3ec2df; color:#ffffff}
+.shipping-payment-methods{margin-top: 10px;}

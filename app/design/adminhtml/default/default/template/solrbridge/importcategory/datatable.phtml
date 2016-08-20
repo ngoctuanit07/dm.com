@@ -1,0 +1,129 @@
+<?php $tableHeadData = $this->getTableHeadData() ?>
+<?php $dataArr = $this->getDataFromExcelFile() ;?>
+<?php if(count($dataArr) > 0):?>
+<div class="plus-bar" id="bulkupdate-bar">
+	<span class="show-per-page">
+		<span><?php echo $this->__('Show '.'50'.' item of ' . $this->rowTotal);?></span>
+	</span>
+	<span id="page-pagination-wrapper">
+		<label><?php echo $this->__('Page')?></label>
+		<select id="page-pagination" name="page-pagination" onchange="changePage(this.value)">
+			<?php echo $this->pageTotal;?>
+			<?php for($i=1 ; $i <= $this->pageTotal; $i++):?>
+				<option value="<?php echo $i?>" <?php echo $i == $this->pageNum ? 'selected="selected"' : ''?>><?php echo $i?></option>
+			<?php endfor;?>
+		</select>
+	</span>
+</div>
+<?php //print_r($this->getCollection());?>
+<div id="bulkupdate-table-data">
+	<div class="grid">
+		<form id="bulkupdate-form-data" action="/">
+			<input  name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey(); ?>">
+			<table cellspacing="0" class="data">
+				<thead>
+					<tr class="headings">
+					<th><?php echo 'stt'?><div><?php echo 'No.'?></div></th>
+					<?php foreach ($tableHeadData as $head):?>
+						<th><?php echo $head?><div><?php echo $head?></div></th>
+					<?php endforeach; ?>
+					</tr>
+				</thead>
+				<tbody>
+				<?php foreach ($dataArr as $index => $row):?>
+						<?php //$checkProductExistBySku = $this->checkProductExistBySku($row['sku'])?>
+						<tr style="background: #fff">
+							<td class=""><?php echo $index?></td>
+						<?php foreach ($row as $attr => $col):?>
+							<td>
+								<div>
+									<?php if($attr != 'id'):?>
+										<label><?php //echo 'New '. $attr . ': '?></label>
+									<?php endif;?>
+									<input name="<?php echo  $attr != 'id' ? 'category['.$row['entity_id'].']['.$attr.']' : ''?> " type="text" value="<?php echo $col?>">
+								</div>
+								
+							</td>
+						<?php endforeach;?>
+						</tr>
+				<?php endforeach;?>
+				</tbody>
+		   	</table>
+	   	</form>
+	</div>
+</div>
+<?php endif;?>
+
+<style>
+#bulkupdate-table-data {
+  position: relative;
+  padding-top: 25px;
+  background: url("<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'adminhtml/default/default/images/sort_row_bg.gif'?>") repeat scroll 0 37% rgba(0, 0, 0, 0);
+ /*  background: #e7e7e7; */
+}
+#bulkupdate-table-data.positioned {
+  position: absolute;
+  top:100px;
+  left:100px;
+  width:800px;
+  box-shadow: 0 0 15px #333;
+}
+.grid {
+  overflow-y: auto;
+  height: 489px;
+}
+#bulkupdate-table-data table {
+  width:100%;
+}
+#bulkupdate-table-data td + td {
+}
+#bulkupdate-table-data td, th {
+  padding: 10px 25px;
+  /* background: transparent; */
+}
+#bulkupdate-table-data th {
+  height: 0;
+  line-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  color: transparent;
+  white-space: nowrap;
+}
+#bulkupdate-table-data th div{
+  position: absolute;
+  background: transparent;
+  color: #2d444f;
+  padding: 9px 25px;
+  top: 0;
+  margin-left: -25px;
+  line-height: normal;
+}
+#bulkupdate-table-data th:first-child div{
+}
+.grid tr.headings {
+    background: #fff;
+}
+
+#bulkupdate-form-data .warning-message {
+	background-image: url("<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'adminhtml/default/default/images/warning_msg_icon.gif'?>");
+	background-position: 3px 9px;
+	background-repeat: no-repeat;
+}
+.plus-bar {
+	margin-bottom: 15px;
+}
+.show-per-page {
+	width: 200px;
+}
+#page-pagination-wrapper {
+	margin-left: 20px;
+}
+
+.old-attribute-value {
+	margin-bottom: 10px;
+}
+
+#bulkupdate-table-data td {
+	vertical-align: middle;
+}
+</style>

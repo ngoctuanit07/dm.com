@@ -1,0 +1,31 @@
+.remove {
+	line-height: 35px;
+	font-weight: bold;
+}
+.input-text.sku.as-input {
+	margin-bottom: 15px;
+	width: 95%;
+}
+
+.quickorder_form .as-original {
+    position: relative;
+}
+.quickorder-autocomplete-popup {
+    background: #f8f8f8;
+    padding: 0;
+    position: absolute;
+    top: 36px;
+    width: 100%;
+    z-index: 999;
+	border: 1px solid #ddd;
+}
+
+.quickorder-autocomplete-popup .popup-item {
+	padding: 0 5px;
+	border-bottom: 1px solid #ddd;
+	cursor: pointer;
+}
+
+.quickorder-autocomplete-popup .popup-item:hover{
+	background: #ddd;
+}

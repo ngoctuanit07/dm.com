@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<SolrBridge_Importcategory>
+			<version>1.0.0</version>
+		</SolrBridge_Importcategory>
+	</modules>
+	<global>
+		<helpers>
+			<sbimportcategory>
+				<class>SolrBridge_Importcategory_Helper</class>
+			</sbimportcategory>
+		</helpers>
+		<blocks>
+			<sbimportcategory>
+				<class>SolrBridge_Importcategory_Block</class>
+			</sbimportcategory>
+		</blocks>
+	</global>
+	 <admin>
+		<routers>
+			<sbimportcategory_admin>
+				<use>admin</use>
+				<args>
+					<module>SolrBridge_Importcategory</module>
+					<frontName>sbimportcategory_admin</frontName>
+				</args>
+			</sbimportcategory_admin>
+		</routers>
+	</admin>
+	<adminhtml>
+		<layout>
+			<updates>
+				<sbimportcategory>
+					<file>solrbridge/importcategory.xml</file>
+				</sbimportcategory>
+			</updates>
+		</layout>
+	</adminhtml> 
+</config>

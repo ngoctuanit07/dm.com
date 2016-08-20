@@ -1,0 +1,17 @@
+.shop-by-wrapper, .shop-by-title {
+	clear: both;
+}
+.shop-by-wrapper li.shop-by-facet {
+    display: inline-table;
+    padding: 10px;
+    width: 30.3%;
+}
+.shop-by-wrapper li.shop-by-facet > a {
+    color: #98befd;
+    font-weight: bold;
+	font-size: 1.2em;
+}
+.shop-by-facet > ul {
+    list-style-type: circle;
+    padding-left: 20px;
+}

@@ -1,0 +1,54 @@
+.qquote-client-collaterals {
+  width: 100%;
+  font-family: "Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;
+}
+.quote-forms > div {
+  border: 1px solid #cccccc;
+  padding: 10px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+#quote-shipping {
+    margin-top: 20px;
+}
+#quote-shipping textarea {
+	width: 100%;
+}
+#quote-shipping .form-group {
+    float: left;
+ 	margin-bottom: 10px;
+    width: 50%;
+    
+}
+#quote-shipping .row {
+    clear: both;
+}
+#quote-shipping .form-group > label {
+    float: left;
+    width: 25%;
+}
+#quote-shipping .form-group input[type="text"], #quote-shipping .form-group input[type="email"] {
+	width: 65%;
+}
+.shipping-estimates {
+    margin-top: 10px;
+}
+#shipping_country, #shipping_region_id, #country, #region_id {
+	width: 65%;
+}
+.btn-empty, .btn-update, .btn-continue {
+	padding: 0 10px !important;
+}
+#qquote-tbl-shipping, #qquote-tbl-billing {
+    margin-top: 15px;
+}
+.quote-forms span.required::after {
+    color: #ee001c;
+    content: " *";
+    font-family: Verdana,Tahoma,Arial,sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+}
+#quote-shipping .validation-advice {
+    padding-left: 25%;
+}

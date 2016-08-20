@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+	<sbimportcategory_admin_adminhtml_importcategory_index>
+		<reference name="content">
+	            <block type="sbimportcategory/adminhtml_importcategory" name="solrbridge.importcategory" template="solrbridge/importcategory/list.phtml"/>
+	        </reference>
+	</sbimportcategory_admin_adminhtml_importcategory_index>
+</layout>

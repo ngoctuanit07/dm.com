@@ -1,0 +1,186 @@
+<div class="upload-wrapper">
+	<form method="post"
+		action="<?php echo Mage::getUrl('sbimportcategory/index/read')//$this->getReadDataUrl()?>"
+		id="form-upload" enctype="multipart/form-data">
+		<label><?php echo $this->__('File upload:')?></label> <input
+			name="file" type="file" id="file" />
+	</form>
+	<div id="updater"></div>
+</div>
+<div class="content-header">
+	<table cellspacing="0">
+		<tbody>
+			<tr>
+				<td style="width: 50%;"><h3 class="icon-head head-cms-page"><?php echo $this->__('Manage Importcategory')?></h3></td>
+				<td class="form-buttons">
+					<button type="button"
+						onclick="saveCurrentData('bulkupdate-form-data', '<?php echo $this->getSaveDataUrl()?>')"
+						class="scalable add" type="button" title="Save data"
+						id="save-current-page-button">
+						<span><span><span><?php echo $this->__('Save Current Data')?></span></span></span>
+					</button>
+					<button type="button"
+						onclick="saveAllData('bulkupdate-form-data', '<?php echo $this->getSaveDataUrl()?>')"
+						class="scalable add" type="button" title="Save data"
+						id="save-all-page-button">
+						<span><span><span><?php echo $this->__('Save All')?></span></span></span>
+					</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div id="bulkupdate-wrapper">
+</div>
+<script type="text/javascript">
+//<![CDATA[
+    var urlRead = '<?php echo $this->getReadDataUrl()?>';
+    var changePageUrl = '<?php echo $this->getChangePageUrl()?>';
+    var savedFlag = null;
+    var currentPage = null;
+    var pageTotal = null;
+    var saveAllFlag = false;
+    var firstSavePage = null;
+	Event.observe(window,'load',function(){
+		Event.observe($("file"),'change', function(){
+			var formdata = new FormData();	
+			var file = $("file").files[0];
+			formdata.append('file', file);
+			formdata.append('form_key', '<?php echo Mage::getSingleton('core/session')->getFormKey(); ?>');
+			Ajax.UploadRequest = Class.create(Ajax.Request, {setRequestHeaders: function(){}});
+			new Ajax.UploadRequest(urlRead, {
+					method:'post',
+					postBody: formdata,
+					onSuccess: function(transport){
+							$('bulkupdate-wrapper').update(transport.responseText);
+				    }
+			});
+		});
+
+	});
+	function  saveCurrentData(formId, urlSave)
+	{
+		var formData = $(formId).serialize(true);
+		doRequest(urlSave,formData);
+	}
+	var nextPage = null;
+	function  saveAllData(formId, urlSave)
+	{
+		var formData = $(formId).serialize(true);
+		pageTotal = $('page-pagination').length;
+		firstSavePage = $('page-pagination').value;
+		//save current page and change to next page
+		saveAllFlag = true;			
+		doRequest(urlSave,formData);
+		$('save-current-page-button').writeAttribute('disabled','disabled');
+		$('save-all-page-button').writeAttribute('disabled','disabled');
+	}
+	
+	function doRequest(urlSave,params)
+	{
+		new Ajax.Request(urlSave, {
+			  method:'post',
+			  evalJSON:'force',
+			  parameters: params,
+			  onSuccess: function(transport){
+				  if($('save-current-page-success'))
+				  {
+					  $('save-current-page-success').remove();
+				  }
+				  if(saveAllFlag)
+				  {
+					  if(firstSavePage === 1){
+						  currentPage = $('page-pagination').value;
+							if(currentPage <= pageTotal)
+							{
+								 changePage(currentPage + 1);
+							}	  
+					  }
+					  else
+					  {
+						  //save page #1
+						  currentPage = currentPage ? currentPage : 1;
+						  if(firstSavePage != currentPage){
+								if(currentPage <= pageTotal)
+								  {
+									  changePage(currentPage);  
+								  }
+								  else
+								  {
+									  saveAllFlag = false;
+									  currentPage = null;
+									  pageTotal = null;
+									  $('bulkupdate-wrapper').update('<p>Saved All Page Sucessfully!</p>');
+								  }
+						  }
+						  else
+						  {
+							  currentPage++;
+							  if(currentPage <= pageTotal)
+							  {
+								  changePage(currentPage);  
+							  }
+							  else
+							  {
+								  saveAllFlag = false;
+								  currentPage = null;
+								  pageTotal = null;
+								  
+								  $('bulkupdate-wrapper').update('<p>Saved All Page Sucessfully!</p>');
+							  }
+						  }
+					  }
+				  }
+				  else
+				  {
+					  var spanSuccess = new Element('span', {id:'save-current-page-success'}).addClassName('save-current-page-success').update('Saved Current Page Successfully!');
+					  $('bulkupdate-bar').appendChild(spanSuccess);  
+				  }
+				  $('save-current-page-button').writeAttribute('disabled', false);
+				  $('save-all-page-button').writeAttribute('disabled', false);
+				  return true;
+			   }
+			});
+	}
+
+	function changePage(value)
+	{
+		 new Ajax.Request(changePageUrl, {
+			  method:'post',
+			  evalJSON:'force',
+			  parameters: {'p': value},
+			  onSuccess: function(transport){
+				  $('bulkupdate-wrapper').update(transport.responseText);
+				  if(saveAllFlag && currentPage <= pageTotal)
+				  {
+					  if(currentPage)
+					  {
+						  currentPage++;
+					  }
+					  if($('save-current-page-success'))
+					  {
+						  $('save-current-page-success').remove();
+					  }					  
+					  saveCurrentData('bulkupdate-form-data', '<?php echo $this->getSaveDataUrl()?>');
+				  }
+			  }
+		}); 
+	}
+//]]>
+</script>
+
+<style>
+#bulkupdate-wrapper p {
+	color: #3f8f17;
+	font-size: 18px;
+	text-align: center;
+}
+
+.save-current-page-success {
+	color: #3f8f17;
+	font-size: 18px;
+	margin: auto auto auto 30%;
+	text-align: right;
+	width: 100%;
+}
+</style>
